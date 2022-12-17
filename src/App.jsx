@@ -32,7 +32,7 @@ function App(){
         }
     }
     
-    const URL= 'http://clientes.diegoda7.repl.co';
+    const URL= 'https://clientes.diegoda7.repl.co';
     
     useEffect(()=>{
         const getcountry = async () => {
