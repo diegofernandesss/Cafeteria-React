@@ -1,0 +1,39 @@
+{
+  "clientes": [
+    {
+      "name": "Diego",
+      "email": "diego@gmail.com",
+      "nascimento": "1996-11-15",
+      "cep": "58759-82",
+      "id": 1
+    },
+    {
+      "name": "Jardiel",
+      "email": "jardiel@gmail.com",
+      "nascimento": "1955-07-14",
+      "cep": "14785-89",
+      "id": 2
+    },
+    {
+      "name": "Alessandra",
+      "email": "alessandra@gmail.com",
+      "nascimento": "2001-08-15",
+      "cep": "58745-98",
+      "id": 3
+    },
+    {
+      "name": "DIego",
+      "email": "diego@gmail.com",
+      "nascimento": "2021-07-14",
+      "cep": "580915",
+      "id": 4
+    },
+    {
+      "name": "Dieo",
+      "email": "mdsmd",
+      "nascimento": "0007-04-15",
+      "cep": "588741",
+      "id": 5
+    }
+  ]
+}
