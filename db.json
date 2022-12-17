@@ -22,18 +22,11 @@
       "id": 3
     },
     {
-      "name": "DIego",
-      "email": "diego@gmail.com",
-      "nascimento": "2021-07-14",
-      "cep": "580915",
+      "name": "Vicente",
+      "email": "vicente@gmail.com",
+      "nascimento": "2003-05-14",
+      "cep": "584795-96",
       "id": 4
-    },
-    {
-      "name": "Dieo",
-      "email": "mdsmd",
-      "nascimento": "0007-04-15",
-      "cep": "588741",
-      "id": 5
     }
   ]
 }

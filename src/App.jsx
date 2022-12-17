@@ -36,7 +36,7 @@ function App(){
     
     useEffect(()=>{
         const getcountry = async () => {
-            const getres= await fetch(URL + '/clientes');
+            const getres= await fetch(URL +  '/clientes');
             const setcountry = await getres.json();
             setClientes(await setcountry);
         }
@@ -51,13 +51,17 @@ function App(){
     }
 
     const handleSubmit = (e) => {
+
+        e.preventDefault();
+
         const form = e.currentTarget;
+
         if (form.checkValidity() === false) {
             e.stopPropagation();
         } else{
             const campos={name, email, nascimento, cep}
 
-            fetch(URL + '/clientes', {
+            fetch(URL  + '/clientes', {
                 method:"POST",
                 headers:{"content-type":"application/json"},
                 body: JSON.stringify(campos)
@@ -69,7 +73,6 @@ function App(){
     
                 handleReset();
                 
-    
                 setTimeout(() => {
                     handleClose();
                 }, 2000);
@@ -95,14 +98,14 @@ function App(){
             <h1 className="mt-3">Clientes</h1>
             <Button variant="success"
             className="rounded-circle mr-4 font-weight-bold mb-3" onClick={handleShow}>
-                +
+                 +
             </Button>
 
             <Modal show={show} onHide={handleClose} >
                 
                 <Modal.Header closeButton>
                 <Modal.Title>Cadastrar Cliente</Modal.Title>
-                
+                <ToastContainer></ToastContainer>
                 </Modal.Header>
                 <Modal.Body>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -121,7 +124,9 @@ function App(){
                         <Form.Control
                             required
                             placeholder="Digite seu Nome"
-                            value={name} onChange={e=> nameChange(e.target.value)}
+                            value={name} 
+                            onChange={e=> nameChange(e.target.value)}
+
                         />
                     </Form.Group>
 
@@ -157,17 +162,19 @@ function App(){
                         value={cep} onChange={e=> cepChange(e.target.value)}
                     />
                     </Form.Group>
+
+                    <Modal.Footer>
+                        <Button variant="danger" onClick={handleReset}>
+                            Limpar
+                        </Button>
+                        <Button variant="success" type="submit" >
+                            Salvar
+                        </Button>
+                    </Modal.Footer>
                     
                 </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                <Button variant="danger" onClick={handleReset}>
-                    Limpar
-                </Button>
-                <Button variant="success" onClick={handleSubmit} >
-                    Salvar
-                </Button>
-                </Modal.Footer>
+                
             </Modal>
 
             <Form inline="true">
@@ -182,7 +189,6 @@ function App(){
                         onChange={(e)=> { handlesearch(e) }}
                         />
                 </Col>
-                {/* <Button className="mb-3">Buscar</Button> */}
                 </Form.Group>
             </Form>
             <Table striped bordered hover>
