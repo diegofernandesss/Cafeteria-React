@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Container, Form, Modal, Col, Table, InputGroup } from "react-bootstrap";
+import { Button, Container, Form, Modal, Col, Table, InputGroup, Row } from "react-bootstrap";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import {toast, ToastContainer} from 'react-toastify';
@@ -10,7 +10,6 @@ function App(){
     const [clientes, setClientes] = useState([]);
     const [filterresult, setFilterresult] = useState([]);
     const [serachcountry, setSearchcountry] = useState('');
-    const [id] = useState('');
     const [name, nameChange] = useState('');
     const [email, emailChange] = useState('');
     const [nascimento, nascimentoChange] = useState('');
@@ -32,7 +31,7 @@ function App(){
         }
     }
     
-    const URL= 'https://clientes.diegoda7.repl.co';
+    const URL= 'http://localhost:3030';
     
     useEffect(()=>{
         const getcountry = async () => {
@@ -57,7 +56,9 @@ function App(){
         const form = e.currentTarget;
 
         if (form.checkValidity() === false) {
+            e.preventDefault();
             e.stopPropagation();
+            toast.error("Preencha todos os campos",{position:toast.POSITION.TOP_CENTER});
         } else{
             const campos={name, email, nascimento, cep}
 
@@ -95,12 +96,6 @@ function App(){
             <Header />
             <Container>
             <ToastContainer></ToastContainer>
-            <h1 className="mt-3">Clientes</h1>
-            <Button variant="success"
-            className="rounded-circle mr-4 font-weight-bold mb-3" onClick={handleShow}>
-                 +
-            </Button>
-
             <Modal show={show} onHide={handleClose} >
                 
                 <Modal.Header closeButton>
@@ -110,57 +105,64 @@ function App(){
                 <Modal.Body>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
-                    <Form.Group className="mb-3">
-                        <Form.Label>Id</Form.Label>
-                        <Form.Control
-                            disabled="disabled"
-                            value={id}
-                            className="mb-3"
-                        />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="validationCustom01">
-                        <Form.Label>Nome</Form.Label>
+                    <Form.Group as={Row} className="mb-3" controlId="validationCustom01">
+                        <Form.Label column sm="3">
+                            <strong>Nome</strong>
+                        </Form.Label>
+                        <Col sm="9">
                         <Form.Control
                             required
+                            type="text"
                             placeholder="Digite seu Nome"
                             value={name} 
                             onChange={e=> nameChange(e.target.value)}
-
                         />
+                        </Col>
+                        
                     </Form.Group>
 
 
-                    <Form.Group className="mb-3" controlId="validationCustom02">
-                        <Form.Label>E-mail</Form.Label>
-                        <InputGroup hasValidation>
-                            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                            <Form.Control
+                    <Form.Group as={Row} className="mb-3" controlId="validationCustom02">
+                        <Form.Label column sm="3">
+                            <strong>E-mail</strong>
+                        </Form.Label>
+                        <Col sm="9">
+                        <Form.Control
                             required
                             type="text"
                             placeholder="example@gmail.com"
                             value={email} onChange={e=> emailChange(e.target.value)}
-                            />
-                        </InputGroup>
+                        />
+                            <Form.Control.Feedback >Looks good!</Form.Control.Feedback>
+                        </Col>
+                            
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="validationCustomUsername">
-                        <Form.Label>Nascimento</Form.Label>
+                    <Form.Group as={Row} className="mb-3" controlId="validationCustomUsername">
+                        <Form.Label column sm="3">
+                            <strong>Nascimento</strong>
+                        </Form.Label>
+                        <Col sm="9">
                         <Form.Control
                             required
                             type="date"
                             placeholder="Digite o Seu Nascimento"
                             value={nascimento} onChange={e=> nascimentoChange(e.target.value)}
                         />
+                        </Col>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="validationCustom03">
-                    <Form.Label>Cep</Form.Label>
+                    <Form.Group as={Row} className="mb-3" controlId="validationCustom03">
+                    <Form.Label column sm="3">
+                        <strong>Cep</strong>
+                    </Form.Label>
+                    <Col sm="9">
                     <Form.Control 
                         required
                         placeholder="Digite o Seu Cep"
                         value={cep} onChange={e=> cepChange(e.target.value)}
                     />
+                    </Col>
                     </Form.Group>
 
                     <Modal.Footer>
@@ -178,9 +180,14 @@ function App(){
             </Modal>
 
             <Form inline="true">
+            <h1 className="mt-3">Clientes</h1>
+            <Button variant="success"
+            className="rounded-circle mr-4 font-weight-bold mb-3" onClick={handleShow}>
+                 +
+            </Button>
                 <Form.Group >
-                <Form.Label column sm="2">
-                    <strong>CONSULTAR</strong>
+                <Form.Label column sm="2" >
+                    <strong>Pesquisar Clientes</strong>
                 </Form.Label>
                 <Col sm="5">
                     <Form.Control 

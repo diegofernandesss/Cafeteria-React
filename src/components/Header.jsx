@@ -14,7 +14,9 @@ export default function Header() {
       <MDBNavbar light dark bgColor='success' >
         <MDBContainer fluid >
           <Container>
-              <MDBNavbarBrand tag="span" className=' navbar-expand-sm navbar-dark'> <h4>Cafeteria</h4>⠀<MDBIcon icon='coffee' /></MDBNavbarBrand>
+              <MDBNavbarBrand tag="span" className=' navbar-expand-sm navbar-dark justify-content-center'> 
+                <h4>Cafeteria</h4>⠀<MDBIcon icon='coffee' />  
+              </MDBNavbarBrand>
           </Container>
         </MDBContainer>
 
