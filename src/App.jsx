@@ -133,7 +133,6 @@ function App(){
                             placeholder="example@gmail.com"
                             value={email} onChange={e=> emailChange(e.target.value)}
                         />
-                            <Form.Control.Feedback >Looks good!</Form.Control.Feedback>
                         </Col>
                             
                     </Form.Group>
@@ -186,16 +185,14 @@ function App(){
                  +
             </Button>
                 <Form.Group >
-                <Form.Label column sm="2" >
+                <Form.Label className="mb-3" >
                     <strong>Pesquisar Clientes</strong>
                 </Form.Label>
-                <Col sm="5">
                     <Form.Control 
                         placeholder="Procurar por Nome, E-mail, Nascimento ou cep" 
                         className="mb-3"
                         onChange={(e)=> { handlesearch(e) }}
                         />
-                </Col>
                 </Form.Group>
             </Form>
             <Table striped bordered hover>
