@@ -31,7 +31,7 @@ function App(){
         }
     }
     
-    const URL= 'https://localhost:3030';
+    const URL= 'http://localhost:3030';
     
     useEffect(()=>{
         const getcountry = async () => {
