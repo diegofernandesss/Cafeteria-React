@@ -12,7 +12,7 @@ npm start
 <h2>Iniciar json-server</h2>
 
 ```bash
-json-server --watch db.json --port 8080
+json-server --watch db.json --port 3030
 ```
 
 <h2>Descrição</h2>
