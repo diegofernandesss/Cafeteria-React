@@ -195,7 +195,7 @@ function App(){
                         />
                 </Form.Group>
             </Form>
-            <Table striped bordered hover>
+            <Table responsive>
                     <thead>
                         <tr>
                             <th>id</th>
