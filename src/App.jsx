@@ -31,7 +31,7 @@ function App(){
         }
     }
     
-    const URL= 'https://clientes.diegoda7.repl.co';
+    const URL= 'http://localhost:3000';
     
     useEffect(()=>{
         const getcountry = async () => {
