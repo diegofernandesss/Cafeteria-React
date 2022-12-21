@@ -197,7 +197,7 @@ function App(){
                 </Col>
                 </Form.Group>
             </Form>
-            <Table responsive>
+            <Table className="mt-3" responsive>
                     <thead>
                         <tr>
                             <th>id</th>
