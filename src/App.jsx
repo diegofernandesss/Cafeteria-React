@@ -188,11 +188,13 @@ function App(){
                 <Form.Label className="mb-3" >
                     <strong>Pesquisar Clientes</strong>
                 </Form.Label>
+                <Col sm="5">
                     <Form.Control 
                         placeholder="Procurar por Nome, E-mail, Nascimento ou cep" 
                         className="mb-3"
                         onChange={(e)=> { handlesearch(e) }}
                         />
+                </Col>
                 </Form.Group>
             </Form>
             <Table responsive>
